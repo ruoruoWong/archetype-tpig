@@ -21,7 +21,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @EnableJpaAuditing
 @EnableTransactionManagement
-public class QijianApplication {
+public class BootApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(SpringApplication.class, args);
