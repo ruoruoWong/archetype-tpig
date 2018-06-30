@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty scope="context" name="logging.root" source="logging.root" defaultValue="unknown"/>
+
+    <appender name="DEFAULT-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.root}/common-default.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>NEUTRAL</onMismatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>NEUTRAL</onMismatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${logging.root}/common-default.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>10</MaxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %logger{80} - %msg[%X{X-B3-TraceId},%X{X-B3-SpanId}]%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR-APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.root}/common-error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${logging.root}/common-error.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>10</MaxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %logger{80} - %msg[%X{X-B3-TraceId},%X{X-B3-SpanId}]%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="DEFAULT-APPENDER" />
+        <appender-ref ref="ERROR-APPENDER" />
+    </root>
+
+</configuration>

@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: ${artifactId}
+  profiles:
+    active: dev
+  boot:
+    admin:
+      routes:
+        endpoints: env,metrics,dump,info,configprops,trace,refresh,heapdump,auditevents,hystrix.stream
+
+server:
+  port: 8103
+  session:
+    timeout: 600
+
+logging:
+  root: /usr/local/logs/${spring.application.name}
+  config: classpath:logback.xml
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enable: true
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+  hystrix:
+    enabled: true
+
+# http层超时配置，自动尝试次数配置，默认为0次
+ribbon:
+  ReadTimeout: 300000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+
+# 接口超时配置，可添加自定义配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+  threadpool:
+    default:
+      coreSize: 20
+      maxQueueSize: 100
+      queueSizeRejectionThreshold: 100

@@ -15,7 +15,7 @@
   <version>${version}</version>
   <packaging>pom</packaging>
 
-  <name>tpig project</name>
+  <name>${artifactId}</name>
 
   <modules>
     <module>biz/api</module>
