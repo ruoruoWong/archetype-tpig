@@ -49,55 +49,55 @@
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-api</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-msg</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-shared</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-task</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-dal</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-facade</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-integration</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-core</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}-deploy</artifactId>
-        <version>${version}</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
